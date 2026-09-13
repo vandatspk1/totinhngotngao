@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#541d3b">
+	<title>Gửi Quỳnh, một điều rất thật</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+		:root {
+			--wine: #541d3b;
+			--rose: #c45e76;
+			--coral: #ef8b76;
+			--cream: #fff6e8;
+			--ink: #291a29;
+			--line: rgba(84, 29, 59, 0.15);
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			min-height: 100vh;
+			overflow-x: hidden;
+			color: var(--ink);
+			font-family: 'Manrope', sans-serif;
+			background:
+				linear-gradient(90deg, rgba(255, 246, 232, 0.9) 0%, rgba(255, 246, 232, 0.72) 42%, rgba(84, 29, 59, 0.28) 100%),
+				url('image/1.jpg') center center / cover fixed no-repeat;
+		}
+
+		.page {
+			position: relative;
+			z-index: 1;
+			display: grid;
+			grid-template-columns: minmax(280px, 0.85fr) minmax(460px, 1.15fr);
+			max-width: 1340px;
+			min-height: 100vh;
+			margin: 0 auto;
+			padding: 32px clamp(24px, 5vw, 76px);
+			gap: clamp(42px, 8vw, 124px);
+			align-items: center;
+		}
+
+		.corner-note {
+			position: absolute;
+			top: 34px;
+			left: clamp(24px, 5vw, 76px);
+			color: var(--wine);
+			font-size: 0.72rem;
+			font-weight: 800;
+			letter-spacing: 0.18em;
+			text-transform: uppercase;
+		}
+
+		.visual {
+			position: relative;
+			min-height: 620px;
+			display: grid;
+			place-items: center;
+		}
+
+		.visual::before {
+			content: '';
+			position: absolute;
+			width: min(78vw, 500px);
+			aspect-ratio: 1;
+			border: 1px solid rgba(84, 29, 59, 0.18);
+			border-radius: 50%;
+		}
+
+		.visual::after {
+			content: '♡';
+			position: absolute;
+			right: 3%;
+			top: 17%;
+			color: var(--coral);
+			font-family: Georgia, serif;
+			font-size: 4.5rem;
+			transform: rotate(12deg);
+			animation: float 4s ease-in-out infinite;
+		}
+
+		.sun {
+			position: absolute;
+			width: min(66vw, 410px);
+			aspect-ratio: 1;
+			border-radius: 50%;
+			background: linear-gradient(145deg, #f6b28e, #d65c76);
+			box-shadow: 20px 26px 0 rgba(84, 29, 59, 0.1);
+		}
+
+		.portrait {
+			position: relative;
+			z-index: 1;
+			width: min(62vw, 390px);
+			height: 475px;
+			overflow: hidden;
+			border: 8px solid var(--cream);
+			border-radius: 48% 48% 18px 18px;
+			background: #f2c6a1;
+			box-shadow: 0 25px 45px rgba(84, 29, 59, 0.2);
+		}
+
+		.portrait::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background:
+				radial-gradient(ellipse at 52% 35%, #f5c4a1 0 17%, transparent 17.5%),
+				radial-gradient(ellipse at 50% 76%, #e68b74 0 30%, transparent 30.5%),
+				radial-gradient(ellipse at 52% 17%, #4a2035 0 28%, transparent 28.5%),
+				linear-gradient(155deg, transparent 45%, rgba(255,255,255,0.22) 45.5% 52%, transparent 52.5%),
+				#e8a07e;
+		}
+
+		.portrait::after {
+			content: '✦  ✧  ✦';
+			position: absolute;
+			left: 12%;
+			bottom: 13%;
+			color: var(--cream);
+			font-size: 1.5rem;
+			letter-spacing: 1.2rem;
+			opacity: 0.8;
+		}
+
+		.stamp {
+			position: absolute;
+			z-index: 2;
+			left: 3%;
+			bottom: 13%;
+			display: grid;
+			place-items: center;
+			width: 96px;
+			height: 96px;
+			border: 1px solid var(--wine);
+			border-radius: 50%;
+			color: var(--wine);
+			font-size: 0.67rem;
+			font-weight: 800;
+			letter-spacing: 0.11em;
+			line-height: 1.55;
+			text-align: center;
+			text-transform: uppercase;
+			transform: rotate(-12deg);
+			background: rgba(255, 246, 232, 0.72);
+		}
+
+		.content { padding-top: 42px; }
+
+		.eyebrow {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			color: var(--rose);
+			font-size: 0.76rem;
+			font-weight: 800;
+			letter-spacing: 0.2em;
+			text-transform: uppercase;
+		}
+
+		.eyebrow::before { content: ''; width: 42px; height: 2px; background: var(--rose); }
+
+		h1 {
+			max-width: 650px;
+			margin: 24px 0 20px;
+			color: var(--wine);
+			font-family: 'DM Serif Display', Georgia, serif;
+			font-size: clamp(4rem, 8vw, 7.5rem);
+			font-weight: 400;
+			letter-spacing: -0.02em;
+			line-height: 0.9;
+		}
+
+		h1 em { color: var(--rose); font-style: italic; }
+
+		.lead {
+			max-width: 530px;
+			margin: 0;
+			color: #684c59;
+			font-size: clamp(1rem, 1.6vw, 1.18rem);
+			line-height: 1.8;
+		}
+
+		.letter {
+			max-width: 550px;
+			margin: 36px 0 32px;
+			padding: 24px 0;
+			border-top: 1px solid var(--line);
+			border-bottom: 1px solid var(--line);
+			font-family: 'DM Serif Display', Georgia, serif;
+			font-size: 1.3rem;
+			line-height: 1.5;
+		}
+
+		.letter strong { color: var(--wine); font-weight: 400; }
+
+		.actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+
+		button {
+			border: 0;
+			border-radius: 999px;
+			padding: 15px 24px;
+			color: var(--cream);
+			cursor: pointer;
+			font: inherit;
+			font-weight: 800;
+			transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+		}
+
+		button:hover { transform: translateY(-3px); }
+		button:focus-visible { outline: 3px solid var(--coral); outline-offset: 4px; }
+
+		.yes { background: var(--wine); box-shadow: 0 10px 20px rgba(84, 29, 59, 0.22); }
+		.yes:hover { background: #712851; box-shadow: 0 14px 25px rgba(84, 29, 59, 0.28); }
+		.maybe { color: var(--wine); background: transparent; border: 1px solid var(--line); }
+		.maybe:hover { background: rgba(255,255,255,0.55); }
+
+		.reply {
+			min-height: 25px;
+			margin: 17px 0 0;
+			color: var(--rose);
+			font-size: 0.88rem;
+			font-weight: 700;
+		}
+
+		.signature { margin-top: 30px; color: var(--wine); font-size: 0.85rem; font-weight: 800; }
+		.signature span { display: block; margin-top: 5px; color: var(--rose); font-family: 'DM Serif Display', Georgia, serif; font-size: 1.5rem; font-weight: 400; }
+
+		.heart {
+			position: fixed;
+			z-index: 5;
+			pointer-events: none;
+			animation: rise 2.6s ease-out forwards;
+		}
+
+		.falling-heart {
+			position: fixed;
+			z-index: 0;
+			top: -30px;
+			pointer-events: none;
+			color: rgba(196, 94, 118, 0.48);
+			font-size: 18px;
+			animation: fall linear forwards;
+		}
+
+		@keyframes rise { to { opacity: 0; transform: translateY(-180px) rotate(35deg) scale(1.5); } }
+		@keyframes fall {
+			0% { opacity: 0; transform: translateY(-30px) rotate(0deg); }
+			12% { opacity: 0.75; }
+			100% { opacity: 0; transform: translateY(110vh) rotate(300deg); }
+		}
+		@keyframes float { 50% { transform: translateY(-12px) rotate(5deg); } }
+
+		@media (max-width: 800px) {
+			body { background-position: 62% center; }
+			.page { display: block; padding-top: 76px; }
+			.visual { min-height: 410px; margin: 24px auto 10px; }
+			.visual::before { width: min(78vw, 330px); }
+			.sun { width: min(62vw, 280px); }
+			.portrait { width: min(57vw, 260px); height: 325px; border-width: 6px; }
+			.stamp { left: 10%; bottom: 3%; width: 75px; height: 75px; font-size: 0.55rem; }
+			.visual::after { right: 10%; top: 5%; font-size: 3rem; }
+			.content { padding-top: 0; }
+			h1 { font-size: clamp(3.6rem, 17vw, 6rem); }
+			.letter { margin-top: 28px; }
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			*, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+		}
+	</style>
+</head>
+<body>
+	<main class="page">
+		<div class="corner-note">Một lá thư · 2026</div>
+
+		<section class="visual" aria-label="Minh họa tình yêu">
+			<div class="sun"></div>
+			<div class="portrait" aria-hidden="true"></div>
+			<div class="stamp">gửi<br>Quỳnh<br>♡</div>
+		</section>
+
+		<section class="content">
+			<div class="eyebrow">Điều anh muốn nói</div>
+			<h1>Quỳnh ơi,<br><em>mình yêu nhau nhé?</em></h1>
+			<p class="lead">Có một người đã làm những ngày bình thường của anh trở nên đáng nhớ hơn. Người đó là em.</p>
+
+			<div class="letter">
+				Anh không hứa sẽ làm mọi ngày đều hoàn hảo, nhưng anh hứa sẽ luôn thành thật, lắng nghe và chọn ở bên em trong những ngày vui lẫn những ngày mệt.
+				<br><br><strong>Quỳnh, cho anh một cơ hội được thương em thật lâu nhé.</strong>
+			</div>
+
+			<div class="actions">
+				<button class="yes" id="yesButton" type="button">Đồng ý ♡</button>
+				<button class="maybe" id="maybeButton" type="button">Cho em suy nghĩ</button>
+			</div>
+			<p class="reply" id="reply" aria-live="polite"></p>
+			<div class="signature">Thương em,<span>người luôn nghĩ về Quỳnh</span></div>
+		</section>
+	</main>
+
+	<script>
+		const reply = document.querySelector('#reply');
+		const yesButton = document.querySelector('#yesButton');
+		const maybeButton = document.querySelector('#maybeButton');
+		const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		function makeFallingHeart() {
+			const heart = document.createElement('span');
+			heart.className = 'falling-heart';
+			heart.textContent = Math.random() > 0.25 ? '♡' : '♥';
+			heart.style.left = `${Math.random() * 100}vw`;
+			heart.style.fontSize = `${12 + Math.random() * 17}px`;
+			heart.style.animationDuration = `${5 + Math.random() * 5}s`;
+			heart.style.animationDelay = `${Math.random() * 1.5}s`;
+			document.body.appendChild(heart);
+			heart.addEventListener('animationend', () => heart.remove());
+		}
+
+		if (!reduceMotion) {
+			setInterval(makeFallingHeart, 650);
+			for (let index = 0; index < 8; index += 1) setTimeout(makeFallingHeart, index * 180);
+		}
+
+		function makeHeart() {
+			const heart = document.createElement('span');
+			heart.className = 'heart';
+			heart.textContent = ['♥', '♡', '✦'][Math.floor(Math.random() * 3)];
+			heart.style.left = `${35 + Math.random() * 30}vw`;
+			heart.style.top = `${48 + Math.random() * 18}vh`;
+			heart.style.color = Math.random() > 0.5 ? '#c45e76' : '#ef8b76';
+			heart.style.fontSize = `${18 + Math.random() * 18}px`;
+			document.body.appendChild(heart);
+			heart.addEventListener('animationend', () => heart.remove());
+		}
+
+		yesButton.addEventListener('click', () => {
+			reply.textContent = 'Anh biết ngay mà. Hẹn em một buổi hẹn thật xinh nhé!';
+			for (let index = 0; index < 18; index += 1) setTimeout(makeHeart, index * 70);
+			yesButton.textContent = 'Mãi bên nhau nhé ♡';
+		});
+
+		maybeButton.addEventListener('click', () => {
+			reply.textContent = 'Em cứ suy nghĩ thật kỹ nhé. Anh vẫn ở đây, không vội đâu.';
+			maybeButton.textContent = 'Anh sẽ chờ';
+		});
+	</script>
+</body>
+</html>
